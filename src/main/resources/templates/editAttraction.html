@@ -2,25 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Attraction</title>
+    <title>Redigér en attraktion</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
     <link rel="icon" th:href="@{/images/favicon.webp}" type="image/webp">
-
 </head>
 <body>
-<h1>Edit Attraction</h1>
+<h1>Redigér en attraktion</h1>
 <form th:action="@{/attractions/update}" method="post" th:object="${touristAttraction}">
-    <input type="hidden" th:field="*{name}" /> <!-- Skjult felt til navnet, så det ikke ændres -->
 
-    <label for="name">Name:</label>
+    <label for="name">Navn:</label>
     <input type="text" id="name" th:field="*{name}" readonly /><br> <!-- Navn kan ikke ændres -->
 
-    <label for="city">City:</label>
+    <label for="city">By:</label>
     <select id="city" th:field="*{city}" required>
         <option th:each="city : ${cities}" th:value="${city}" th:text="${city}" th:selected="${city == touristAttraction.city}"></option>
     </select><br>
 
-    <label for="description">Description:</label>
+    <label for="description">Beskrivelse:</label>
     <textarea id="description" th:field="*{description}" required></textarea><br>
 
     <label>Tags:</label>
@@ -29,8 +27,8 @@
         <label th:for="${tag}" th:text="${tag}"></label><br>
     </div><br>
 
-    <button type="submit">Save Changes</button>
+    <button type="submit">Gem ændringer</button>
 </form>
-<a href="/attractions">Back to List</a>
+<a href="/attractions">Tilbage til oversigten</a>
 </body>
 </html>

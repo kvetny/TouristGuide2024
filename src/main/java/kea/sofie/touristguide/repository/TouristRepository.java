@@ -1,9 +1,6 @@
    // Repository-pakken indeholder klasser, der håndterer dataadgang og lagring
    package kea.sofie.touristguide.repository;
-
-   // Importerer modellen så den kan bruges i dennne klasse
    import kea.sofie.touristguide.model.TouristAttraction;
-   // Importerer Repository-annotationen for at markere klassen som et datahåndteringslag
    import org.springframework.stereotype.Repository;
    import java.util.ArrayList;
    import java.util.Iterator;
@@ -21,7 +18,10 @@
                new TouristAttraction("Den Blå Planet", "Oplev verden under overfladen", "København", List.of("Dyr", "Børnevenligt")),
                new TouristAttraction("Amalienborg", "Se hvor de kongelige bor", "København", List.of("Historie", "Kultur", "Gratis")),
                new TouristAttraction("Nationalmuseet", "Se hele Danmarks historie", "København", List.of("Historie", "Kultur")),
-               new TouristAttraction("Rundetaarn", "Se hvad Christian IV har bygget", "København", List.of("Historie", "Kultur", "Op i højderne"))
+               new TouristAttraction("Rundetaarn", "Se hvad Christian IV har bygget", "København", List.of("Historie", "Kultur", "Op i højderne")),
+               new TouristAttraction("Djurs Sommerland", "Nordens største sommerland", "Aarhus", List.of("Forlystelser", "Restauranter", "Børnevenligt")),
+               new TouristAttraction("ARoS", "Et unikt kunstmuseum", "Aarhus", List.of("Kunst", "Historie")),
+               new TouristAttraction("Maximum", "Bowling, legeland, trampolinpark, escape rooms og minigolf", "Aalborg", List.of("Børnevenligt"))
        ));
 
 
@@ -32,10 +32,9 @@
 
        // Metode til at hente en specifik attraktion baseret på navnet
        public TouristAttraction getOneAttraction(String name) {
-           // Looper igennem listen for at finde en attraktion med netop det navn
            for (TouristAttraction touristAttraction : TouristAttractions) {
-               if (touristAttraction.getName().equals(name)) { // Tjekker om attraktionens navn matcher det søgte
-                   return touristAttraction; // Returnerer attraktionen hvis den findes
+               if (touristAttraction.getName().equals(name)) {
+                   return touristAttraction;
                }
            }
            return null;
@@ -50,7 +49,9 @@
        }
 
        public List<String> getTags() {
-           return List.of("Forlystelser", "Restauranter", "Kunst", "Ved vandet", "Gratis", "Dyr", "Børnevenligt", "Historie", "Kultur", "Op i højderne");
+           return List.of("Forlystelser", "Restauranter", "Kunst",
+                   "Ved vandet", "Gratis", "Dyr", "Børnevenligt",
+                   "Historie", "Kultur", "Op i højderne");
        }
 
        public void updateAttraction(TouristAttraction updatedAttraction) {
@@ -75,38 +76,3 @@
            return false;
        }
    }
-       
-
-
-           /* Metode til at tilføje en ny attraktion
-           public TouristAttraction addAttraction (TouristAttraction touristAttraction){
-               TouristAttractions.add(touristAttraction);
-               return touristAttraction;
-           }
-
-           // Metode til at opdatere en attraktions beskrivelse
-           public TouristAttraction updateAttraction (TouristAttraction touristAttraction){
-               for (TouristAttraction touristAttraction1 : TouristAttractions) {
-                   if (touristAttraction1.getName().equals(touristAttraction.getName())) {
-                       touristAttraction1.setDescription(touristAttraction.getDescription());
-                       return touristAttraction1;
-                   }
-               }
-               return null; // Returnerer null hvis attraktionen ikke findes
-           }
-
-           // Metode til at slette en attraktion
-           public boolean deleteAttraction (String name){
-               Iterator<TouristAttraction> iterator = TouristAttractions.iterator();
-               while (iterator.hasNext()) {
-                   TouristAttraction touristAttraction = iterator.next();
-                   if (touristAttraction.getName().equals(name)) {
-                       iterator.remove();
-                       return true;
-                   }
-               }
-               return false;
-           }  */
-
-
-

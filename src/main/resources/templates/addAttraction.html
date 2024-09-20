@@ -2,21 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add New Attraction</title>
+    <title>Tilføj en ny attraktion</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
     <link rel="icon" th:href="@{/images/favicon.webp}" type="image/webp">
 
 </head>
 <body>
-<h1>Add New Attraction</h1>
+<h1>Tilføj en ny attraktion</h1>
 <form th:action="@{/attractions/save}" method="post" th:object="${touristAttraction}">
-    <label for="name">Name:</label>
+    <label for="name">Navn:</label>
     <input type="text" id="name" th:field="*{name}" required><br>
 
-    <label for="description">Description:</label>
+    <label for="description">Kort beskrivelse:</label>
     <textarea id="description" th:field="*{description}" required></textarea><br>
 
-    <label for="city">City:</label>
+    <label for="city">By:</label>
     <select id="city" th:field="*{city}" required>
         <option value="" disabled selected>Vælg en by</option>
         <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
@@ -28,9 +28,9 @@
         <label th:for="${tag}" th:text="${tag}"></label><br>
     </div>
 
-    <button type="submit">Save</button>
+    <button type="submit">Gem</button>
 </form>
-<a href="/attractions">Back to List</a>
+<a href="/attractions">Tilbage til oversigten</a>
 </body>
 </html>
 

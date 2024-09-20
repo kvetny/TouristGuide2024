@@ -3,7 +3,6 @@ package kea.sofie.touristguide.service;
 import kea.sofie.touristguide.model.TouristAttraction;
 import kea.sofie.touristguide.repository.TouristRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -22,7 +21,7 @@ public class TouristService {
 
     // Metode til at hente en attraktion baseret på navn ved at kalde repository-metoden
     public TouristAttraction getOneAttraction(String name) {
-        return touristRepository.getOneAttraction(name); // Returnerer attraktionen med det ønskede navn fra repository
+        return touristRepository.getOneAttraction(name);
     }
 
     public void saveAttraction(TouristAttraction touristAttraction) {
