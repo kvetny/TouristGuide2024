@@ -65,7 +65,7 @@ class TouristControllerTest {
 
 
 
-    // Ved ikke hvordan man gør når det er en POST
+    /*// Ved ikke hvordan man gør når det er en POST
     @Test
     void saveAttraction() throws Exception {
     }
@@ -86,5 +86,5 @@ class TouristControllerTest {
     // Ved ikke hvordan man gør når det er en POST
     @Test
     void deleteAttraction() {
-    }
+    }*/
 }
